@@ -1,6 +1,6 @@
 {
   "name": "express-zod-contract",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "exports": {
     ".": {
@@ -8,6 +8,8 @@
       "require": "./dist/index.js"
     }
   },
+  "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "dev": "tsup src/index.ts --watch --onSuccess 'node dist/index.js'",
     "build": "tsup-node src/index.ts --format cjs,esm --dts-resolve"
