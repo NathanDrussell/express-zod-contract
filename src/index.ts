@@ -1,4 +1,4 @@
-import express from "express";
+import type { Request, Response } from "express";
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 
@@ -64,9 +64,9 @@ type ContractFn = <
   THeaders extends z.Schema<unknown>
 >(
   contactInput: ContractInput<TQuery, TParams, TBody, THeaders, TResult>
-) => (req: express.Request, res: express.Response) => void;
+) => (req: Request, res: Response) => void;
 
-export const contract = ((contract) => {
+export const contract: ContractFn = (contract) => {
   return async (req, res) => {
     const logs: LogParams[] = [];
     try {
@@ -137,7 +137,7 @@ export const contract = ((contract) => {
       else console.log("No logger defined");
     }
   };
-}) satisfies ContractFn;
+};
 
 export type LoggingFunction = (params: LogParams[]) => Promise<void>;
 

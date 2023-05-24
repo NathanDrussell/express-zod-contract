@@ -1,6 +1,5 @@
-import { default as e, default as express } from "express";
-import { type } from "os";
-import { ZodError, z } from "zod";
+import * as express from "express";
+import { z } from "zod";
 import { contract, defineLogger } from ".";
 
 const app = express();

@@ -1,14 +1,23 @@
 {
-  "name": "express-contract",
-  "version": "1.0.0",
+  "name": "express-zod-contract",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "scripts": {
-    "dev": "tsup src/index.ts --watch --onSuccess 'node dist/index.js'"
+    "dev": "tsup src/index.ts --watch --onSuccess 'node dist/index.js'",
+    "build": "tsup-node src/index.ts --format cjs,esm --dts-resolve"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Nathan Russell",
+    "url": "https://n8n.gg"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@types/node": "^20.2.3",
